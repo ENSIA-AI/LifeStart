@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Website</title>
+  <link rel="stylesheet" href="board.css">
+  <link rel="stylesheet" href="nav.css">
+</head>
+
+<body>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <div class="transition">
+    <div class="transition-text">Loading</div>
+  </div>
+
+  <!-- Sidebar Toggle Button -->
+  <div class="sidebar-toggle">
+    <div class="toggle-line"></div>
+    <div class="toggle-line"></div>
+    <div class="toggle-line"></div>
+  </div>
+
+  <!-- Overlay for closing sidebar -->
+  <div class="sidebar-overlay"></div>
+
+  <div class="dia">
+    <a href="#home" class="nav-item active" data-page="home">Home</a>
+    <a href="#board" class="nav-item" data-page="board">Board</a>
+    <a href="#wlc" class="nav-item" data-page="wlc">Welcome</a>
+  </div>
+
+  <main>
+    <div id="content-container" class="page active"></div>
+  </main>
+  <script src="nav.js"> </script>
+</body>
+</html>
