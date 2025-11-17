@@ -123,7 +123,7 @@ form.addEventListener("submit", (e) => {
 
   // === Use uploaded photo or default ===
   if (!photo || !photo.type.startsWith("image/")) {
-    const defaultPhoto = "/image/FLOWER.jpg";
+    const defaultPhoto = "/FLOWER.jpg";
     createCard(defaultPhoto);
   } else {
     reader.onload = (event) => {
@@ -170,3 +170,4 @@ document.addEventListener("click", (e) => {
     countSpan.textContent = count;
   }
 });
+
