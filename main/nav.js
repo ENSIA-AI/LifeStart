@@ -1,3 +1,4 @@
+
 // Cursor
 const cursorDot = document.querySelector('.cursor-dot');
 const cursorRing = document.querySelector('.cursor-ring');
@@ -104,13 +105,22 @@ class PageManager {
 
     async loadPage(page) {
         try {
-            const response = await fetch(`.\Courses\${page}.html`);
+            // 🚀 IMPORTANT: UPDATE THESE PATHS BASED ON YOUR GITHUB FOLDER STRUCTURE
+            const pagePaths = {
+                'home': 'home.html',                   
+                'board': 'board/board.html',         
+                'wlc': 'Courses/welcoming-page.htm'         
+            };
+            
+            const response = await fetch(pagePaths[page]);
             const content = await response.text();
             this.contentContainer.innerHTML = content;
             this.currentPage = page;
 
-            this.loadCSS(`${page}.css`);
-            this.loadJS(`${page}.js`);
+            // Load CSS and JS from same folder as HTML
+            const basePath = pagePaths[page].replace('.html', '');
+            this.loadCSS(`${basePath}.css`);
+            this.loadJS(`${basePath}.js`);
 
         } catch (error) {
             console.error('Error loading page:', error);
@@ -118,6 +128,7 @@ class PageManager {
             <div style="display: flex; justify-content: center; align-items: center; height: 100%; flex-direction: column; text-align: center; padding: 20px;">
               <h1 style="font-size: clamp(2rem, 5vw, 3rem); margin-bottom: 1rem;">${page.charAt(0).toUpperCase() + page.slice(1)}</h1>
               <p style="font-size: clamp(1rem, 3vw, 1.2rem); opacity: 0.8; margin-bottom: 2rem;">Welcome to the ${page} page</p>
+              <p style="color: #ff6b6b; margin-bottom: 1rem;">File not found: ${pagePaths[page]}</p>
               <button onclick="pageManager.navigateTo('home')" style="padding: 12px 30px; background: #667eea; border: none; border-radius: 25px; color: white; cursor: pointer; font-size: clamp(0.8rem, 2vw, 1rem);">Return Home</button>
             </div>
           `;
@@ -171,5 +182,4 @@ document.querySelectorAll('button, a, .nav-item, .sidebar-toggle').forEach(eleme
 // Touch device optimizations
 if ('ontouchstart' in window) {
     document.body.classList.add('touch-device');
-
 }
