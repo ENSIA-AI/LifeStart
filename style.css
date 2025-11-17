@@ -129,6 +129,7 @@ nav {
 .donationbtn:hover {
 
   color: #81C995;
+  transform: scale(1.2);
 
 }
 
@@ -567,5 +568,6 @@ button {
   }
 
 }
+
 
 
