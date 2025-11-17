@@ -104,7 +104,7 @@ class PageManager {
 
     async loadPage(page) {
         try {
-            const response = await fetch(`${page}.html`);
+            const response = await fetch(`.\Courses\${page}.html`);
             const content = await response.text();
             this.contentContainer.innerHTML = content;
             this.currentPage = page;
@@ -171,4 +171,5 @@ document.querySelectorAll('button, a, .nav-item, .sidebar-toggle').forEach(eleme
 // Touch device optimizations
 if ('ontouchstart' in window) {
     document.body.classList.add('touch-device');
+
 }
