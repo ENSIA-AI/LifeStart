@@ -115,12 +115,12 @@ nav {
 }
 
 .donationbtn {
-  color: white;
+  color: black;
   display: flex;
   transition: color;
   text-decoration: none;
   font-weight: bold;
-  font-size: large;
+  font-size: larger;
   padding: 10px 60px;
   transition: all 0.3s ease;
   transform-origin: center;
@@ -567,4 +567,5 @@ button {
   }
 
 }
+
 
