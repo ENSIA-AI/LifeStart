@@ -1,0 +1,180 @@
+:root {
+  --closed-h: 220px;
+  --closed-w: 300px;
+  --opened-h: 100vh;
+  --opened-w: 100vw;
+  --anim-time: 450ms;
+}
+
+html {
+  scrollbar-color: #79d34b rgb(125, 216, 131);
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(rgb(147, 192, 42), rgba(223, 249, 130, 1), rgba(200, 242, 78, 1));
+  animation: Moving 2.5s ease-in;
+  animation-iteration-count: 1;
+}
+
+.Chapter-number {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  font-size: 45px;
+  color: rgb(0, 0, 0);
+}
+
+.Chapter-Elements {
+  scroll-behavior: smooth;
+  overflow-x: auto;
+  overflow-y: hidden;
+  display: flex;
+  height: 7cm;
+  padding-bottom: 10px;
+}
+
+.card {
+  width: 500px;
+  height: 100%;
+  perspective: 1000px; /* adds 3D depth */
+  margin-left: 45px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+/* Flip on */
+.card.flip .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; /* hide back side when facing away */
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the front */
+.card-front {
+  background: linear-gradient(120deg, rgb(147, 192, 42), rgb(98, 132, 17));
+  color: rgb(0, 0, 0);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/* Style the back */
+.card-back {
+  background: #dbdbdc;
+  color: #333;
+  transform: rotateY(180deg);
+  transform-origin: top center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  width: var(--closed-w);
+  height: var(--closed-h);
+  overflow: hidden;
+  transition: height var(--anim-time) ease, width var(--anim-time) ease;
+  position: relative;
+}
+
+/* Removed .card-back.open (fullscreen expansion) */
+/* Removed iframe reveal logic */
+
+/* Optional: keep iframe styling but hide it safely */
+.card-back iframe {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  border: 0;
+  pointer-events: none;
+  display: none;
+}
+
+.cards-inner-text {
+  font-size: 20px;
+  color: rgb(0, 0, 0);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.courses-header {
+  border-radius: 25px;
+  background-color:  rgb(51, 103, 34);
+  text-align: center;
+  color: rgb(1, 0, 0);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-style: italic;
+  margin-bottom: 20px;
+  font-size: 25px;
+  width: 100%;
+  position: relative;
+  animation: Moving 2s ease-in-out;
+  animation-iteration-count: 1;
+}
+
+.description {
+  font-size: 35px;
+  color: #1d1b1b;
+  width: 100vw;
+  font-style: normal;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: 'italic', sans-serif;
+  border: solid 2px rgb(3, 51, 3);
+  border-radius: 2cm;
+  text-align: center;
+ position: relative;
+}
+
+.details {
+  font-size: 25px;
+}
+.lock{
+  background-color: transparent;
+  font-size: 75px;
+  z-index: 9999;
+}
+@keyframes Moving {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  .courses-header {
+    font-size: 20px;
+    background-color: rgb(51, 103, 34);
+  }
+
+  .Chapter-number{
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+  }
+ 
+}
+.card.locked {
+  opacity:0.7;
+  cursor : not-allowed;
+}
