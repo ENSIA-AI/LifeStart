@@ -1,5 +1,5 @@
 body {
-  background-image: url(image/nick-fewings-ZcBY_mxVBCE-unsplash.jpg);
+  background-image: url(nick-fewings-ZcBY_mxVBCE-unsplash.jpg);
   font-family: Arial, sans-serif;
   background-size: cover;
   background-position: center;
@@ -565,4 +565,5 @@ button {
     font-weight: bolder;
 
   }
+
 }
