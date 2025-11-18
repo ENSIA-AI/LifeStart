@@ -1,0 +1,218 @@
+ body {
+   
+ /*/ background: linear-gradient(  120deg, #84fab0, #8fd3f4, #fbc2eb);/*/
+ background :linear-gradient(45deg, #fa8bff 0%, #2bd2ff 52%, #2bff88 90%);
+  background-size: 400% 400%;
+  animation: gradientMove 15s ease infinite;
+ 
+  font-family: 'Poppins', sans-serif;
+  color: #f7f0f0;
+  text-align: center;
+
+ 
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+@keyframes gradientMove {
+  0% { background-position: 0% 60%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+ 
+nav {
+  background: black;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-size: 18px;
+  margin-right: 100px;
+  transition: transform 0.2s ease, color 0.3s ease;
+}
+
+.nav-link:hover {
+  transform: scale(1.1);
+  color: #ffd700;
+}
+
+.nav-link.active {
+  color: #ff9a9e;
+  margin-right: 40px;
+}
+
+ 
+.donate-section {
+  padding: 50px 20px;
+}
+
+.options {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.options button {
+  background: #ff9a9e;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.options button:hover {
+  background: #ff7579;
+}
+
+/* ===== BOXES ===== */
+.box {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ===== SCROLL AREA ===== */
+.scroll-box {
+  max-height: 180px;
+  overflow-y: auto;
+  margin-bottom: 15px;
+  padding-right: 5px;
+}
+
+.family-card {
+  background: #e4e9ec;
+  border-radius: 8px;
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.family-card a {
+  text-decoration: none;
+  color: #333;
+  font-weight: bold;
+}
+
+/* ===== FORM ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+button[type="submit"] {
+  background: #333;
+  color: white;
+  border: none;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button[type="submit"]:hover {
+  background: #555;
+}
+
+@media screen and (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .nav-link {
+    font-size:  16px;
+    margin: 0;
+    
+     
+    
+  }
+  .nav-link.active{
+    font-size:  16px;
+    margin: 0;
+  }
+
+    .linkbtn{
+   
+    align-items: center;
+    gap: 5px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+   }
+  
+
+  .donate-section {
+    padding: 30px 10px;
+  }
+
+  .options {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .options button {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+
+  .box {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .scroll-box {
+    max-height: 150px;
+  }
+
+  input {
+    font-size: 14px;
+  }
+
+  button[type="submit"] {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+.scroll-box::-webkit-scrollbar {
+  width:   8px;
+}
+ .scroll-box::-webkit-scrollbar-track {
+  background: #f9f9f9;
+  border-radius: 10px;
+}
+.scroll-box::-webkit-scrollbar-thumb {
+  background-color: #f3a4a4;
+  border-radius:  10px;
+}
+.scroll-box::-webkit-scrollbar-thumb:hover {
+  background-color: #e27373;
+}

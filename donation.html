@@ -1,0 +1,47 @@
+ 
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donate</title>
+  <link rel="stylesheet" href="donation.css" />
+</head>
+<body>
+  <nav class="linkbtn">
+    <a href="index.html" class="nav-link">story land</a>
+    <a href="donate.html" class="nav-link active">why Donate?</a>
+  </nav>
+
+  <section class="donate-section">
+    <h1>💖 Choose where to donate</h1>
+    <div class="options">
+      <button id="familyBtn">Family</button>
+      <a href="https://crisisrelief.un.org/en/donate-sudan-crisis"><button id="associationBtn"> Sudaan association </button></a>
+  
+      <a href="https://elbaraka.org/"><button id="associationBtn">baraka association </button></a>
+    </div>
+
+    <!-- FAMILY BOX -->
+    <div id="familyBox" class="hidden box">
+      <h2 style="color: black;">👨‍👩‍👧 Family Donations </h2>
+      <div class="scroll-box" id="familyList">
+       <div class="family-card"><a href="https://l.instagram.com/?u=https%3A%2F%2Fchuffed.org%2Fproject%2F144918-help-mohammed-and-his-family%3Ffbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGn4-wd-JU3dYvMf2JTyhfa478IAgr6thV4WNBrMoGLjEZxs6iDTp5L-FRKGKU_aem_Fc0etfPbehlPnWfsgF9gLA&e=AT2cAJlgDheMYeGbpn_EgO-rR5OS1RtSejwH6MxcwIi1gtBGCdYoTDG6WA1FQQuRyDbU7Sd3RDGUTbrzPa0kB4eTgzs7hEzFeSCGdxJggg" target="_blank">Mohammed Family</a></div>  
+        <div class="family-card"><a href="https://l.instagram.com/?u=https%3A%2F%2Fchuffed.org%2Fproject%2F130815-help-ahmed-and-his-family-afford-basic-needs-in-gaza%3Ffbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnVoGcXcMLiIKS9HbRIsVboDmgCh8HTLNZVzGEBjTspa1GviNHbuH6S2vhuug_aem_NINR35uDIvvWmOGiFuvEPQ&e=AT0LkXdA2dqPudDlZ2LLkW-2wqs3SBp5GgHpKoL8mLNWW0zC9YEPmp33iXBRNngA_WjrqEVffZ9IAjsl8mtxgxi-CE-2Pn56TyZlsbTmaQ" target="_blank">Ahmed Family</a></div>
+      </div>
+
+      <form id="addFamilyForm">
+        <input type="text" id="familyName" placeholder="Family Name"   />
+        <input type="text" id="familyLink" placeholder="Family Link (https://...)"   />
+        <button type="submit">Add Family</button>
+      </form>
+    </div>
+
+    
+    
+
+</section>
+
+  <script src="donate.js"></script>
+</body>
+</html>
