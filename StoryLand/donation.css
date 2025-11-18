@@ -1,4 +1,4 @@
- body {
+   body {
    
  /*/ background: linear-gradient(  120deg, #84fab0, #8fd3f4, #fbc2eb);/*/
  background :linear-gradient(45deg, #fa8bff 0%, #2bd2ff 52%, #2bff88 90%);
@@ -34,7 +34,9 @@ nav {
 .nav-link {
   color: white;
   text-decoration: none;
+  text-align: center;
   font-size: 18px;
+  margin-right: 100px;
   transition: transform 0.2s ease, color 0.3s ease;
 }
 
@@ -45,6 +47,7 @@ nav {
 
 .nav-link.active {
   color: #ff9a9e;
+  margin-right: 40px;
 }
 
  
@@ -144,8 +147,25 @@ button[type="submit"]:hover {
   }
 
   .nav-link {
-    font-size: 16px;
+    font-size:  16px;
+    margin: 0;
+    
+     
+    
   }
+  .nav-link.active{
+    font-size:  16px;
+    margin: 0;
+  }
+
+    .linkbtn{
+   
+    align-items: center;
+    gap: 5px;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+   }
+  
 
   .donate-section {
     padding: 30px 10px;
