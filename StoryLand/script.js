@@ -1,4 +1,4 @@
- const form = document.getElementById("storyForm");
+  const form = document.getElementById("storyForm");
 form.setAttribute("novalidate", true);
 const carousel = document.getElementById("carousel");
 const getCards = () => document.querySelectorAll(".card");
@@ -123,7 +123,7 @@ form.addEventListener("submit", (e) => {
 
   // === Use uploaded photo or default ===
   if (!photo || !photo.type.startsWith("image/")) {
-    const defaultPhoto = "/FLOWER.jpg";
+    const defaultPhoto = "FLOWER.jpg";
     createCard(defaultPhoto);
   } else {
     reader.onload = (event) => {
@@ -170,4 +170,5 @@ document.addEventListener("click", (e) => {
     countSpan.textContent = count;
   }
 });
+
 
