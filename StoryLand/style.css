@@ -1,4 +1,4 @@
-body {
+ body {
   background-image: url(nick-fewings-ZcBY_mxVBCE-unsplash.jpg);
   font-family: Arial, sans-serif;
   background-size: cover;
@@ -115,21 +115,23 @@ nav {
 }
 
 .donationbtn {
-  color: black;
+  color: rgb(245, 241, 241);
   display: flex;
   transition: color;
   text-decoration: none;
   font-weight: bold;
-  font-size: larger;
+  font-size: 30px;
+  text-align:left;
   padding: 10px 60px;
   transition: all 0.3s ease;
-  transform-origin: center;
+  transform-origin: left;
 }
 
 .donationbtn:hover {
 
   color: #81C995;
-  transform: scale(1.2);
+  transform: translateX( 20px);
+
 
 }
 
@@ -566,8 +568,5 @@ button {
     font-weight: bolder;
 
   }
-
 }
-
-
 
