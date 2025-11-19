@@ -379,25 +379,41 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // ----------- SMOOTH SCROLL -----------
+    
+
     const btn = document.getElementById("scrollLink"); 
-    const feature = document.getElementById("features");
+const feature = document.getElementById("features");
 
-    if (btn && feature) {
-        btn.addEventListener("click", (e) => {
-            e.preventDefault();
-            feature.scrollIntoView({ behavior: "smooth" });
-        });
-    }
+if (btn && feature) {
+    btn.addEventListener("click", (e) => {
+        e.preventDefault();
+        feature.scrollIntoView({ behavior: "smooth" });
+    });
+}
 
-    const icon = document.getElementById("scroll");
-    const sug = document.getElementById("suggestedItems");
+// Other links to features (class)
+const featureLinks = document.querySelectorAll(".scrollFeature");
 
-    if (icon && sug) {
-        icon.addEventListener("click", (e) => {
-            e.preventDefault();
+featureLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (feature) {
+            feature.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+    });
+});
+
+const sugLinks = document.querySelectorAll(".scroll");
+const sug = document.getElementById("suggestedItems");
+
+sugLinks.forEach(link => {
+    link.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (sug) {
             sug.scrollIntoView({ behavior: "smooth", block: "start" });
-        });
-    }
+        }
+    });
+});
 
     // ----------- FAQ TOGGLE -----------
     const faqItems = document.querySelectorAll(".faq_item");
@@ -419,3 +435,61 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
     
+// ----------- PHONE BUTTON FUNCTIONALITY -----------
+const phoneBtn = document.getElementById("phoneBtn");
+const phoneNumber = "+213555555555";
+
+function isMobile() {
+    return /Android|iPhone|iPad|iPod|Windows Phone/i.test(navigator.userAgent);
+}
+
+phoneBtn.onclick = (e) => {
+    e.preventDefault();
+    if (isMobile()) {
+        // Open phone app on mobile
+        window.location.href = "tel:" + phoneNumber;
+    } else {
+        // Copy number and alert on desktop
+        navigator.clipboard.writeText(phoneNumber);
+        alert("Phone number copied: " + phoneNumber);
+    }
+};
+       // the pop up. for the pages about us and contact us
+  document.addEventListener("DOMContentLoaded", () => {
+
+  // About popup
+  const aboutPopup = document.getElementById("aboutPopup");
+  document.querySelectorAll(".aboutLink").forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      aboutPopup.classList.remove("hidden");
+    });
+  });
+  document.getElementById("closeAbout").addEventListener("click", () => {
+    aboutPopup.classList.add("hidden");
+  });
+
+  // Contact popup
+  const contactPopup = document.getElementById("contactPopup");
+  document.querySelectorAll(".contactLink").forEach(link => {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      contactPopup.classList.remove("hidden");
+    });
+  });
+  document.getElementById("closeContact").addEventListener("click", () => {
+    contactPopup.classList.add("hidden");
+  });
+
+  // Close popup if clicking outside the box
+  [aboutPopup, contactPopup].forEach(popup => {
+    popup.addEventListener("click", e => {
+      if (e.target === popup) {
+        popup.classList.add("hidden");
+      }
+    });
+  });
+
+});
+
+

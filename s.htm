@@ -21,6 +21,12 @@
 
 
 
+
+
+
+
+      
+
 </head>
 
 <body>
@@ -37,11 +43,11 @@
                 </button>
                 <nav id="menu">
                     <ul>
-                        <li><a href="">Home</a></li>
-                        <li><a href="">Product</a></li>
-                        <li><a href="">About</a></li>
-                        <li><a href="">Countact</a></li>
-                        <li><a href="">Account</a></li>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="#features" class="scrollFeature">Product</a></li>
+                        <li><a href="#" class="aboutLink">About</a></li>
+                        <li><a href="#" class="contactLink">Contact</a></li>
+                      
 
 
 
@@ -1103,11 +1109,11 @@
             <div class="footericons">
                 <h2>Our Media</h2>
                 <div class="icons">
-                    <a href=""><i class="fa-brands fa-facebook"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram"></i></a>
-                    <a href=""><i class="fa-solid fa-envelope"></i></a>
-                    <a href=""><i class="fa-solid fa-phone-volume"></i></a>
-                    <a href="#suggestedItems" id="scroll"><i class="fa-solid fa-up-long"></i></a>
+                    <a href="https://www.facebook.com/share/1D25a8Uwrv/"  target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/muslimsshop4/"  target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="mailto:muslimsshop4@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                    <a href="#" id="phoneBtn"><i class="fa-solid fa-phone-volume"></i></a>
+                    <a href="#suggestedItems" class="scroll"><i class="fa-solid fa-up-long"></i></a>
                 </div>
             </div>
         </div>
@@ -1116,10 +1122,10 @@
             <h2>Other Links</h2>
             <div class="links">
                 <ul>
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Shop</a></li>
-                    <li><a href="">about Us</a></li>
-                    <li><a href="">contact Us</a></li>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="#suggestedItems" class="scroll">Shop</a></li>
+                    <li><a  href="#" class="aboutLink">about Us</a></li>
+                    <li><a href="#" class="contactLink">contact Us</a></li>
 
                 </ul>
             </div>
@@ -1135,14 +1141,35 @@
         </div>
 
 
-        <script src="s.js" defer></script>
+       
     </footer>
 
 
 
 
-   
+   <div id="contactPopup" class="hidden">
+        <div class="box">
+            <span id="closeContact">&times;</span>
+            <h3>Contact Us</h3>
+            <ul>
+                <li><a href="mailto:yasmine.ziani@ensia.edu.dz">yasmine.ziani@ensia.edu.dz</a></li>
+                <li><a href="mailto:loubna.hadjab@ensia.edu.dz">loubna.hadjab@ensia.edu.dz</a></li>
+                <li><a href="mailto:aya.laouadi@ensia.edu.dz">aya.laouadi@ensia.edu.dz</a></li>
+                <li><a href="mailto:maria-saadia.outaleb@ensia.edu.dz">maria-saadia.outaleb@ensia.edu.dz</a></li>
+            </ul>
+        </div>
+    </div>
 
+    <div id="aboutPopup" class="hidden">
+        <div class="box">
+            <span id="closeAbout">&times;</span>
+            <h3>About Our Team</h3>
+            <p>We are a dedicated team of developers and designers...
+                2nd year students at ENSIA working on the MuslimsShop project as part of our curriculum
+            </p>
+        </div>
+    </div>
+ <script src="s.js" > </script>
 
 </body>
 
