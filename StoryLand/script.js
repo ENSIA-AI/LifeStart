@@ -1,4 +1,4 @@
- const form = document.getElementById("storyForm");
+   const form = document.getElementById("storyForm");
 form.setAttribute("novalidate", true);
 const carousel = document.getElementById("carousel");
 const getCards = () => document.querySelectorAll(".card");
@@ -55,6 +55,20 @@ form.addEventListener("submit", (e) => {
     return;
   }
 
+  // === FIXED NAME VALIDATION FUNCTION ===
+  function isName(name) {
+    return /^[a-zA-Z\s]+$/.test(name);
+  }
+
+  if (!isName(name)) {
+    alert("Name must contain only letters and spaces.");
+    nameInput.classList.add("error");
+    return;
+  } else {
+    nameInput.classList.remove("error");
+    nameInput.classList.add("success");
+  }
+
   const isEmail = (email) =>
     /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$/.test(email);
 
@@ -79,16 +93,15 @@ form.addEventListener("submit", (e) => {
         <div class="card-face back">
           <div class="story">
             <h3>${name}</h3>
-             
             <p><small>${email}</small></p>
             <button class="delete-btn">🗑️ Delete</button>
-            
             <p>${story}</p>
-              <div class="likes">
-      <button class="like-btn">❤️</button>
-      <span class="like-count">0</span>
-    </div>
-            
+
+            <div class="likes">
+              <button class="like-btn">❤️</button>
+              <span class="like-count">0</span>
+            </div>
+
           </div>
         </div>
       </div>
@@ -96,7 +109,7 @@ form.addEventListener("submit", (e) => {
 
     // === Flip behavior ===
     card.addEventListener("click", (e) => {
-      if (e.target.classList.contains("delete-btn")) return; // skip flip on delete click
+      if (e.target.classList.contains("delete-btn")) return;
       getCards().forEach(c => {
         if (c !== card) c.classList.remove("flipped");
       });
@@ -110,7 +123,7 @@ form.addEventListener("submit", (e) => {
       if (confirmed) {
         card.remove();
         alert(`${name}'s story deleted.`);
-        currentIndex = 0; // reset carousel position
+        currentIndex = 0;
         updateCarousel();
       }
     });
@@ -149,8 +162,7 @@ closeBtn.addEventListener("click", () => {
   document.body.classList.remove("blur");
 });
 
-
-// Simple local system (frontend only)
+// === Likes System ===
 document.addEventListener("click", (e) => {
   if (e.target.classList.contains("like-btn")) {
     const btn = e.target;
@@ -158,11 +170,9 @@ document.addEventListener("click", (e) => {
     let count = parseInt(countSpan.textContent);
 
     if (btn.classList.contains("liked")) {
-      // If already liked, remove like
       count--;
       btn.classList.remove("liked");
     } else {
-      // Add like
       count++;
       btn.classList.add("liked");
     }
