@@ -24,9 +24,7 @@
           <li class="nav-item">
             <a class="nav-link active mx-lg-2" aria-current="page" href="#">Home</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link mx-lg-2" href="#">About Program</a>
-          </li>
+         
             <li class="nav-item">
             <a class="nav-link mx-lg-2" href="welcoming-page.htm">Go Back</a>
           </li>
@@ -42,7 +40,7 @@
        <div id="player"></div>
         <h1>Description :</h1>
         <p class="course-description">
-         EVER heard of the four madahibs (hanbali, chafi3i , maliki..), let's dive more..
+         EVER heard of the four madahibs (hanbali, chafi3i , maliki..), let's dive more..</p>
      </div>
         
   
@@ -54,120 +52,129 @@
     
 </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-  <script>
-    let player;
-    let subtitlesDivs;
-    let subtitles = []; //the parts will be tracked in an array
-    const trackerDiv = document.getElementById("tracker");
-    let watchedTime = parseFloat(localStorage.getItem("watchedTime")) || 0;
-    let lastTime = 0;
-    let trackingInterval = null;
-         //once we embedded the api link //the function is called automatically
+      <script>
+let player;
+let subtitlesDivs;
+let subtitles = []; //the parts will be tracked in an array
+const trackerDiv = document.getElementById("tracker");
+let watchedTime = parseFloat(localStorage.getItem("watchedTime")) || 0;
+let lastTime = watchedTime;
+let trackingInterval = null;
 
+const required_percent = 80; //the percentage required to unlock the next course
+const courseId = parseInt(document.body.dataset.courseId);
 
-        const tag =document.createElement('script');
-          tag.src= "https://www.youtube.com/iframe_api";
-          document.body.appendChild(tag);
+// Load YouTube IFrame API
+const tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+document.body.appendChild(tag);
 
-          //called automatically when the api is ready
-         function onYouTubeIframeAPIReady(){
-            player = new YT.Player('player' ,{
-                height: '390',
-                width: '640',
-                videoId:'oJG4Pe1OX2Y', //the video id //extracted from the link of the video
-                playerVars :{playsinline: 1 ,controls: 1 , rel:0 },
-                events:{
-                    onReady: onPlayerReady,
-                    onStateChange :onPlayerStateChange,
-                },
-            });
-         }
-     //the function to call when the video is ready to play
-         function onPlayerReady(){
-           localStorage.removeItem("watchedTime");
-          localStorage.removeItem("watched time");
+// called automatically when API is ready
+function onYouTubeIframeAPIReady() {
+    player = new YT.Player('player', {
+        height: '390',
+        width: '640',
+        videoId: 'CQ6C4NXJaUc', //the video id
+        playerVars: { playsinline: 1, controls: 1, rel: 0 },
+        events: {
+            onReady: onPlayerReady,
+            onStateChange: onPlayerStateChange,
+        },
+    });
+}
 
-          player.seekTo(0 , true);
-           const totalDuration = player.getDuration();
-           const partDuration = totalDuration / 5;
-            for (let i = 0; i < 5; i++) {
-             subtitles.push({
-             text: `Part ${i + 1}`,
-             start: i * partDuration,
-              end: (i + 1) * partDuration,
-      });
+// called when video is ready
+function onPlayerReady() {
+    player.seekTo(0, true);
+    const totalDuration = player.getDuration();
+    const partDuration = totalDuration / 5;
+
+    for (let i = 0; i < 5; i++) {
+        subtitles.push({
+            text: `Part ${i + 1}`,
+            start: i * partDuration,
+            end: (i + 1) * partDuration,
+        });
     }
 
-    //to display the tracker on the page 
+    // display tracker
     trackerDiv.innerHTML = "";
     subtitles.forEach((s) => {
-      const div = document.createElement("div");
-      div.classList.add("subtitle");
-      div.textContent = s.text;
-      trackerDiv.appendChild(div);
+        const div = document.createElement("div");
+        div.classList.add("subtitle");
+        div.textContent = s.text;
+        trackerDiv.appendChild(div);
     });
     subtitlesDivs = document.querySelectorAll('.subtitle');
-    console.log(`Video duration: ${totalDuration.toFixed(2)} seconds`);
-     //restoring the watched time if  available
-    if(watchedTime > 0 && watchedTime <player.getDuration()){
-      player.seekTo(watchedTime , true);
+
+    // restore watched time if available
+    if (watchedTime > 0 && watchedTime < totalDuration) {
+        player.seekTo(watchedTime, true);
     }
-    console.log(`video duration : ${totalDuration.toFixed(2)} seconds`);
-  }
-  
-  //tracking the states (pausing /playing / stopping)
-   function onPlayerStateChange(event){
-      if(event.data == YT.PlayerState.PLAYING){
-        lastTime = player.getCurrentTime(); 
-        trackingInterval = setInterval(()=>{
-            const time = player.getCurrentTime();
-            highlightSubtitle(time);
-            updateWatchedTime(time);
-        } , 500);
-      }
-      else if(
-        event.data ==YT.PlayerState.PAUSED ||
-        event.data == YT.PlayerState.ENDED
-      ){
-          clearInterval(trackingInterval);
-      }
-   }
+}
 
-   //to add styling effects to our tracker
-            function highlightSubtitle(time){
-                subtitles.forEach((s, i) =>{
-                    if (time >= s.start && time < s.end){
-                        subtitlesDivs[i].classList.add('active');
+let isSeeking = false; // <--- new guard flag
 
-                    }
-                    else{
-                        subtitlesDivs[i].classList.remove('active');
-                    }
-                })
+function onPlayerStateChange(event) {
+    if (event.data == YT.PlayerState.PLAYING) {
+        trackingInterval = setInterval(() => {
+            let t = player.getCurrentTime();
+
+            // Prevent skipping ahead
+            if (!isSeeking && t > lastTime + 0.5) { // allow tiny drift
+                isSeeking = true; // block further alerts
+                alert("Skipping ahead is not allowed!");
+                player.seekTo(lastTime, true);
+
+                // small timeout to release the flag after the seek completes
+                setTimeout(() => {
+                    isSeeking = false;
+                }, 200);
+                return; // exit this iteration
             }
-      function updateWatchedTime(time){
-        //this condition is necessary in case the user decided to rewatch any part , it would'nt effect on the real watched time
-        if(time > lastTime){
-          watchedTime += (time - lastTime);
-        }
-        lastTime = time;
-      }
-  window.addEventListener("beforeunload" , () =>{
-      localStorage.setItem("watched time" , watchedTime.toFixed(2));
-  })
-   window.addEventListener("load" , () => {
-      console.log(`the previous time is ${watchedTime.toFixed(2)}`);
-   });
 
-   //the unlocking function
-   function ToUnlock(time){
+            if (t > lastTime) watchedTime += (t - lastTime);
+            lastTime = t;
+
+            highlightSubtitle(t);
+            checkUnlock();
+        }, 500);
+    } else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED) {
+        clearInterval(trackingInterval);
+        localStorage.setItem("watchedTime", watchedTime);
+    }
+}
+// highlight tracker
+function highlightSubtitle(time) {
+    subtitles.forEach((s, i) => {
+        if (time >= s.start && time < s.end) {
+            subtitlesDivs[i].classList.add('active');
+        } else {
+            subtitlesDivs[i].classList.remove('active');
+        }
+    });
+}
+
+// check unlock
+function checkUnlock() {
     const total = player.getDuration();
     const percentage = (watchedTime / total) * 100;
-    if(percentage >= 80){
-       localStorage.setItem("courseUnlocked" , "true");
-       console.log("unlocked next course");
+    if (percentage >= required_percent) {
+        console.log("You can now move to next course");
     }
-   }
- </script>
+}
+
+// next button
+function checkMoving() {
+    const total = player.getDuration();
+    const percentage = (watchedTime / total) * 100;
+    if (percentage >= required_percent) {
+        window.location.href = "Course 14.htm";
+    } else {
+        alert("You need to watch at least 80% of this course before moving to the next!");
+    }
+}
+
+    </script>
 </body>
 </html>

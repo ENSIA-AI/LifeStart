@@ -108,8 +108,11 @@ function showScore(){
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}`;
   if(correctCount >= 4){
-    nextButton.innerHTML = "Unlock next"
+    nextButton.textContent = "Next Course";
     nextButton.style.display = "block";
+    nextButton.onclick = () => {
+      window.location.href = "course 6.htm";
+    }
   }
   else{
     nextButton.innerHTML = "try again , your score is low";
@@ -135,4 +138,3 @@ nextButton.addEventListener("click" , () => {
 });
 
 startQuiz();
-  
