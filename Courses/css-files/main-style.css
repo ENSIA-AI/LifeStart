@@ -1,0 +1,199 @@
+  :root{
+    --light: #eaffb9;
+    --mid:   #d4f57f;
+    --dark:  #c2f23c;
+  }
+
+  /* reset */
+  *{
+    box-sizing:border-box;
+  }
+  html,body{height:100%}
+  body{
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #111;
+    position: relative;
+    /* fallback background color while gradients load */
+    background-color: var(--light);
+    overflow-x: hidden;
+  }
+
+  /* Big soft core + outer ring (base) */
+  body::before{
+    content: "";
+    position: fixed;            /* fixed so it doesn't move with layout */
+    left: 50%;
+    top: 35%;
+    transform: translateX(-50%);
+    width: 120vmax;            /* very large so rings look smooth on any viewport */
+    height: 100vmax;
+    pointer-events: none;
+    z-index: -2;
+    /* stacked radial gradients: soft core and mid tonal ring */
+    background:
+      radial-gradient(circle at 50% 45%,
+        rgb(147, 192, 42) 0%,
+        rgba(223,249,130,1) 32%,
+        rgba(200,242,78,1) 56%,
+        rgba(214, 243, 146, 0.95) 75%,
+        rgba(234,255,185,0.85) 100%);
+    filter: blur(14px);        /* soften edges */
+  }
+
+  /* Secondary lighter rings and the bottom arc */
+  body::after{
+    content:"";
+    position: fixed;
+    left: 50%;
+    top: 60%;
+    transform: translateX(-50%);
+    width: 140vmax;
+    height: 140vmax;
+    pointer-events: none;
+    z-index: -1;
+    /* Create rings by alternating a colored stop and a transparent stop */
+    background:
+      radial-gradient(circle at 50% 40%,
+        rgba(234,255,185,0.0) 0%,
+        rgba(234,255,185,0.0) 28%,
+        rgba(212,245,127,0.35) 30%,
+        rgba(212,245,127,0.35) 38%,
+        rgba(200,242,78,0.25) 40%,
+        rgba(200,242,78,0.25) 48%,
+        rgba(234,255,185,0.0) 52%,
+        rgba(234,255,185,0.0) 100%),
+      /* subtle bottom curved "half-wave" */
+      radial-gradient(ellipse at 50% 100%,
+        rgba(234,255,185,1) 0%,
+        rgba(234,255,185,0.95) 10%,
+        rgba(234,255,185,0) 60%);
+    mix-blend-mode: overlay;
+    filter: blur(6px);
+    opacity: 0.95;
+  }
+
+  /* content demo so you can see layout */
+  .hero{
+    max-width: 1100px;
+    width: 92%;
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .title{
+    font-size: clamp(2rem, 5vw, 4.5rem);
+    line-height: 1.02;
+    margin: 0 0 8px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .subtitle{
+    max-width: 760px;
+    margin: 0 auto 24px;
+    color: #4b4b4b;
+    font-size: clamp(0.9rem, 1.6vw, 1.15rem);
+  }
+
+  .floating-btn ,.btn1 , .btn2 , .btn3{
+    position: relative;
+    background-color: black;
+    color: white;
+    border-radius: 35px;
+    width: 255px;
+    height: 2cm;
+    padding: 5px;
+    font-size: 26px;
+    z-index: 9999;
+    animation: float 3s ease-in-out infinite;
+       box-shadow: 
+    0 4px 6px rgba(124, 31, 31, 0.3),     /* main shadow */
+    10px 10px 10px rgba(21, 57, 9, 0.5);  /* colored glow */
+  }
+  .btn1{
+    top: -300px;
+    left: -450px;
+  }
+  .btn3{
+    top: -300px;
+    left: 200px;
+  }
+  .btn2{
+    top: 75px;
+    left: 200px;
+  }
+  .floating-btn{
+    left: -100px;
+    top: 50px;
+    background-color: rgb(23, 42, 10);
+    cursor: pointer;
+  }
+ .subtitle {
+    font-weight: bold;
+ }
+ 
+  @keyframes float {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, -20px);
+  }
+}
+
+  /* small responsive tweak so rings shift on very tall/short viewports */
+  @media (max-height:420px){
+    body::before{top:45%}
+    body::after{top:72%}
+  }
+  /* ---------- TABLETS (width ≤ 1024px) ---------- */
+@media (max-width: 1024px) {
+  .floating-btn, .btn1, .btn2, .btn3 {
+    width: 200px;
+    height: 1.7cm;
+    font-size: 22px;
+    animation-duration: 4s; /* smoother motion */
+  }
+
+  .btn1 { top: -200px; left: -200px; }
+  .btn2 { top: 50px; left: 100px; }
+  .btn3 { top: -200px; left: 100px; }
+  .floating-btn { left: -50px; top: 30px; }
+}
+@media(max-width:844px
+){
+    .btn3 , .btn1{
+        top: -300px;
+    }
+    .btn2{
+        top: 50px;
+        left: 200px;
+    }
+}
+
+/* ---------- PHONES (width ≤ 600px) ---------- */
+@media (max-width: 600px) {
+  .floating-btn, .btn1, .btn2, .btn3 {
+    position: relative;
+    width: 150px;
+    height: 1.5cm;
+    font-size: 18px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    margin: 15px auto;
+    left: 0;    /* center horizontally */
+    top: 0;
+    display: block;
+  }
+
+  /* Optional: stack buttons vertically */
+  .btn1, .btn2, .btn3 {
+   animation : none;
+  }
+}
+
+ 
