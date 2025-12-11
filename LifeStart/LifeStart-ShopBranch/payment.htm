@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Card</title>
+
+
+    <link rel="icon" href="Pics/payment-method.png" type="image/png">
+    <link rel="stylesheet" href="payment.css">
+
+</head>
+
+<body>
+
+    <div id="page" class="site">
+        <div class="container">
+            <div class="outer">
+                <div class="header"></div>
+                <div class="time_left"></div>
+                <span> time left!</span>
+
+                <a href="#"><strong>.web</strong>Pay</a>
+
+
+
+
+                <section class="payment">
+
+
+                    <div class="left">
+                        <form id="payment-form" action="" method="post">
+
+                            <div class="card-number">
+
+                                <p>Cart Number</p><hr hidden>
+
+                                 <span>
+                                        Enter The number on the card the max is 16 digits
+                                    </span><hr hidden>
+
+                                <div class="card-number-box">
+                                 
+
+                                    <input type="text" id="credit-card" autocomplete="off"
+                                        placeholder="xxxx - xxxx - xxxx - xxxx">
+
+                                    <span class="cc-logo"> </span>
+
+                                </div>
+                            </div>
+                            <div class="card-holder">
+                                <div class="text"></div>
+                                <p>
+                                    Card Name Holder
+                                </p>
+                                <span>Enter the card holder name </span><hr hidden>
+                                <div class="input">
+
+                                    <input type="text" id="card-name" auotocomplete="off" >
+                                </div>
+
+
+                            </div>
+
+                            <div class="card-cvc">
+                                <div class="text"></div>
+
+                                <span>enetr 4 or 3 digits number</span>
+                                <p> cart CVC</p>
+                                <div class="input">
+
+                                    <input type="number" id="cvc-id" data-maxlength="4" 
+                                        oninput="this.value=this.value.slice(0, this.dataset.maxlength)" />
+
+
+                                </div>
+                            </div>
+                            <div class="card-expiryDate">
+                                <div class="text"></div>
+                                <p>Expiration</p>
+                                <span>enter the expiration date of the card </span>
+                            </div>
+                            <div class="input">
+
+                                <input type="number" id="exp-month" placeholder="MM" data-maxlength="2" 
+                                    oninput="this.value=this.value.slice(0, this.dataset.maxlength)" />
+                                <strong> / </strong>
+                                <input type="number" id="exp-year" placeholder="YY" data-maxlength="2"
+                                    oninput="this.value=this.value.slice(0, this.dataset.maxlength)" />
+
+                            </div>
+                            <button>
+                                <h2>Pay Now</h2>
+                            </button>
+                    </div>
+
+
+                    </form>
+
+
+                    <div class="right">
+                        <div class="card-virtual">
+                            <p class="cc_logo"></p>
+                            <p class="name-holder"></p>
+                            <p class="chip"></p>
+                            <p class="highlight">
+
+                                <span class="last-digit" id="card-number">
+                                    <h1>Payment Card</h1>
+                                </span>
+                                <span class="expiry">
+                                    <span class="exp-moth"></span>
+                                    <span class="exp-year"></span>
+
+
+                                </span>
+                            </p>
+
+                        </div>
+                        <div class="receipt">
+                            <ul>
+                                
+
+
+
+                                <li>
+                                    <span>Product</span>
+                                    <span data-product-name>rug</span>
+
+
+
+                                </li>
+
+                                
+                            </ul>
+                            <div class="total">
+
+                                <p class="price"><strong>500.00</strong>DA
+                                </p>
+                                <p>total you have to pay</p>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+  
+
+    <script src="payment.js"></script>
+</body>
+
+</html>
+
+
+
+
+
