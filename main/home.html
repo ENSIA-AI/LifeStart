@@ -1,0 +1,742 @@
+<!-- home.html -->
+<div class="islamic-home-container">
+    <!-- HEADER -->
+    <div class="headerContainer">
+        <div class="header">
+            <a href="#home" class="logo">
+                <img src="logo.jpg" alt="logo" style="width:150px"/>
+            </a>
+            <div class="headerLinks">
+                <a href="#shop">Our Shop</a>
+                <a href="#concept">Site Concept</a>
+                <a href="#aboutus">About Us</a>
+                <a href="#contactus">Contact Us</a>
+                <a href="Login.html" target="_blank">
+                    <button class="btn">Join-Us</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- LANDING PAGE -->
+    <div class="landingPageContainer">
+        <div class="landingPage">
+            <!-- LEFT SIDE -->
+            <div class="leftSide">
+                <p class="welcome">Welcome to Islam Guide</p>
+                <h1 class="slogan">YOUR ISLAMIC LEARNING JOURNEY STARTS HERE!</h1>
+                <p class="description">
+                    Islam Guide is a comprehensive platform dedicated to helping new Muslims 
+                    learn about Islam through authentic resources, educational materials, 
+                    and a supportive community. Start your spiritual journey with us today.
+                </p>
+
+                <!-- Search Bar for Islamic Content -->
+                <div class="searchBar">
+                    <input type="text" placeholder="Search Islamic topics, products..." />
+                    <button class="btn searchBtn">Search</button>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE - Islamic Image -->
+            <div class="imageContainer">
+                <img src="images/islamic-banner.jpg" alt="Islamic Education" />
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURED ITEMS SECTION (Best Rated Items) -->
+    <div class="trendingContainer" id="shop">
+        <span>Islamic Products</span>
+        <div class="trendingHeader">
+            <h1>Best Rated Items</h1>
+            <button class="btn" onclick="viewAllProducts()">View All Products</button>
+        </div>
+        <div class="trendingCard" id="best-rated-items">
+            <!-- Best rated items will be loaded by JavaScript -->
+        </div>
+    </div>
+
+    <!-- SITE CONCEPT SECTION - Text Only -->
+    <div class="conceptcontainer" id="concept">
+        <div class="mostPlayed">
+            <div class="mostHeader">
+                <h1>Our Learning Approach</h1>
+            </div>
+            <div class="text-content">
+                <p>
+                    At Islam Guide, we believe in making Islamic education accessible, authentic, 
+                    and engaging for everyone. Our approach combines traditional Islamic knowledge 
+                    with modern teaching methods to help you understand and practice Islam with confidence.
+                </p>
+                
+                <h3>Our Educational Philosophy</h3>
+                <p>
+                    We follow a structured learning path that begins with the fundamentals of Islam 
+                    and gradually progresses to more advanced topics. Each lesson is carefully designed 
+                    to build upon previous knowledge, ensuring a comprehensive understanding of Islamic 
+                    principles and practices.
+                </p>
+                
+                <h3>Teaching Methodology</h3>
+                <p>
+                    Our methodology emphasizes practical application alongside theoretical knowledge. 
+                    We provide real-life examples, case studies, and interactive exercises that help 
+                    you apply Islamic teachings in your daily life. This approach ensures that learning 
+                    is not just academic but transformative.
+                </p>
+                
+                <h3>Curriculum Structure</h3>
+                <p>
+                    The curriculum is divided into progressive modules covering essential topics 
+                    including Quranic studies, Hadith, Islamic history, jurisprudence (Fiqh), and 
+                    spiritual development. Each module includes assessments to track your progress 
+                    and reinforce learning.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT US SECTION - Text Only -->
+    <div class="aboutContainer" id="aboutus">
+        <div class="aboutContent">
+            <div class="sectionHeader">
+                <span>who we are</span>
+                <h1>About Islam Guide</h1>
+            </div>
+            
+            <div class="text-content">
+                <h2>Our Story</h2>
+                <p>
+                    Islam Guide was founded in 2020 with a simple yet powerful vision: to create 
+                    a welcoming space where Muslims at all levels of knowledge could learn, grow, 
+                    and connect with their faith. What began as a small initiative to help new 
+                    Muslims has grown into a comprehensive educational platform serving thousands 
+                    of students worldwide.
+                </p>
+                
+                <h2>Our Mission</h2>
+                <p>
+                    Our mission is to provide authentic, accessible, and comprehensive Islamic 
+                    education that empowers individuals to develop a deep and meaningful connection 
+                    with Allah. We strive to make Islamic knowledge available to everyone, regardless 
+                    of their background or previous experience with Islam.
+                </p>
+                
+                <h2>Our Vision</h2>
+                <p>
+                    We envision a world where every Muslim has the opportunity to learn about their 
+                    religion in a way that is engaging, relevant, and transformative. A world where 
+                    Islamic knowledge is not just preserved but lived and shared with wisdom and compassion.
+                </p>
+                
+                <h2>Our Values</h2>
+                <ul class="values-list">
+                    <li><strong>Authenticity:</strong> All our content is based on Quran and authentic Hadith</li>
+                    <li><strong>Excellence:</strong> We strive for the highest quality in everything we do</li>
+                    <li><strong>Compassion:</strong> We approach teaching with empathy and understanding</li>
+                    <li><strong>Community:</strong> We believe in the power of learning together</li>
+                    <li><strong>Innovation:</strong> We continuously improve our methods and materials</li>
+                </ul>
+                
+                <h2>Our Team</h2>
+                <p>
+                    Our team consists of qualified Islamic scholars, experienced educators, and 
+                    dedicated professionals who are passionate about making Islamic education 
+                    accessible to all. Each team member brings unique expertise and a shared 
+                    commitment to serving the Muslim community.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT US SECTION -->
+    <div class="formContainer" id="contactus">
+        <form class="contact-form">
+            <h2>Contact Us</h2>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit" class="btn">Send Message</button>
+        </form>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footerContainer">
+        <div class="footer">
+            Copyright &copy; 2024 Islam Guide. All rights reserved. 
+            Dedicated to serving the Muslim community.
+        </div>
+    </div>
+</div>
+
+<style>
+.islamic-home-container {
+    font-family: 'Poppins', sans-serif;
+    background: #0a0a0a;
+    color: white;
+    line-height: 1.6;
+}
+
+/* HEADER - Islamic Colors */
+.headerContainer {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.header {
+    height: 80px;
+    background: transparent;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 100px 0 100px;
+    max-width: 1300px;
+    margin: auto;
+}
+
+.headerLinks {
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+.headerLinks a {
+    text-decoration: none;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 50px;
+    transition: .3s;
+}
+
+.headerLinks a:hover {
+    background: rgba(102, 126, 234, 0.3);
+}
+
+.logo img {
+    width: 150px;
+}
+
+/* LANDING PAGE - Islamic Theme */
+.landingPageContainer {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    border-radius: 0 0 100px 100px;
+}
+
+.landingPage {
+    display: flex;
+    color: #fff;
+    padding: 100px 0;
+    max-width: 1300px;
+    margin: auto;
+}
+
+.landingPage .slogan {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 50px;
+    background: linear-gradient(135deg, #fff, #667eea, #00f2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.landingPage .welcome {
+    font-size: x-large;
+    height: 10px;
+    color: #667eea;
+}
+
+.landingPage .description {
+    color: rgba(255, 255, 255, 0.8);
+    width: 80%;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.searchBar {
+    position: relative;
+    margin-top: 50px;
+}
+
+.searchBar input {
+    border-radius: 50px;
+    border: 2px solid #667eea;
+    outline: none;
+    width: 40%;
+    height: 50px;
+    font-size: large;
+    padding-left: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.searchBar input::placeholder {
+    font-size: medium;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.btn {
+    border-radius: 50px;
+    height: 52px;
+    border: none;
+    font-weight: 600;
+    font-size: medium;
+    padding: 0 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: #fff;
+    text-transform: uppercase;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #764ba2, #667eea);
+    transform: translateY(-2px);
+}
+
+.searchBar .searchBtn {
+    position: absolute;
+    left: 300px;
+}
+
+.leftSide {
+    padding-top: 30px;
+    flex: 8;
+}
+
+.imageContainer {
+    flex: 4;
+}
+
+.imageContainer img {
+    width: 100%;
+    border-radius: 20px;
+    border: 3px solid #667eea;
+}
+
+/* FEATURED ITEMS SECTION */
+.trendingContainer {
+    margin: auto;
+    max-width: 1300px;
+    margin-top: 100px;
+}
+
+.trendingHeader, .mostHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 40px;
+}
+
+.trendingHeader h1, .mostHeader h1, .sectionHeader h1 {
+    margin-top: 0;
+    color: white;
+}
+
+.trendingContainer span, .conceptcontainer span, .sectionHeader span {
+    text-transform: uppercase;
+    color: #667eea;
+    font-weight: 600;
+}
+
+.trendingCard {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.trendingCard .card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    transition: all 0.3s;
+}
+
+.trendingCard .card:hover {
+    transform: translateY(-10px);
+    border-color: #667eea;
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
+}
+
+.trendingCard .card img {
+    border-radius: 20px 20px 0 0;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.trendingCard .card .cardInfo {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trendingCard .card .cardName {
+    flex: 1;
+}
+
+.trendingCard .cardName h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.trendingCard .cardName p {
+    color: #667eea;
+    margin-bottom: 0;
+    font-weight: 500;
+}
+
+.trendingCard .cardInfo .icon img {
+    width: 40px;
+    transition: .3s;
+}
+
+.trendingCard .cardInfo .icon {
+    margin-left: 15px;
+}
+
+.trendingCard .cardInfo img:hover {
+    transform: scale(1.2);
+}
+
+/* TEXT CONTENT SECTIONS */
+.conceptcontainer {
+    background: rgba(102, 126, 234, 0.1);
+    margin-top: 100px;
+    padding: 50px;
+    border-radius: 50px;
+}
+
+.conceptcontainer .mostPlayed {
+    max-width: 1300px;
+    margin: auto;
+}
+
+.text-content {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.text-content h2 {
+    color: #667eea;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}
+
+.text-content h3 {
+    color: #667eea;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.text-content p {
+    margin-bottom: 1rem;
+}
+
+.values-list {
+    list-style: none;
+    padding: 0;
+}
+
+.values-list li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.values-list li:last-child {
+    border-bottom: none;
+}
+
+/* ABOUT US SECTION */
+.aboutContainer {
+    margin-top: 100px;
+    max-width: 1300px;
+    margin: 100px auto 0;
+    padding: 0 20px;
+}
+
+.aboutContent {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 50px;
+    border-radius: 30px;
+    border: 1px solid rgba(102, 126, 234, 0.3);
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* CONTACT FORM */
+.formContainer {
+    display: flex;
+    padding: 40px;
+    margin: auto;
+    justify-content: center;
+    max-width: 1300px;
+}
+
+.formContainer form {
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 400px;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 20px;
+    height: 450px;
+    border: 1px solid rgba(102, 126, 234, 0.3);
+}
+
+.formContainer form h2 {
+    text-align: center;
+    color: #667eea;
+    margin-bottom: 1rem;
+}
+
+.formContainer form input,
+.formContainer form textarea {
+    outline: none;
+    border: 1px solid rgba(102, 126, 234, 0.3);
+    padding-left: 20px;
+    font-size: large;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 10px;
+}
+
+.formContainer input {
+    height: 50px;
+}
+
+.formContainer textarea {
+    border-radius: 10px;
+    padding-top: 10px;
+    resize: none;
+}
+
+.formContainer input::placeholder,
+.formContainer textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* FOOTER */
+.footerContainer {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    height: 150px;
+    border-radius: 100px 100px 0 0;
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.footer {
+    max-width: 1300px;
+    margin: auto;
+    text-align: center;
+    color: #fff;
+    font-weight: 500;
+    font-size: larger;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header {
+        padding: 20px;
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .headerLinks {
+        width: 100%;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .landingPage {
+        flex-direction: column;
+        padding: 50px 20px;
+    }
+    
+    .searchBar input {
+        width: 70%;
+    }
+    
+    .searchBar .searchBtn {
+        position: relative;
+        left: 0;
+        margin-top: 1rem;
+    }
+    
+    .trendingHeader, .mostHeader {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .aboutContent, .conceptcontainer {
+        padding: 30px 20px;
+    }
+}
+</style>
+
+<script>
+// SAMPLE PRODUCTS ARRAY - Self-contained for home page
+const sampleProducts = [
+    {
+        id: 1,
+        name: "Kids Prayer Mat - Colorful",
+        price: 24.99,
+        image: "images/mat1.jpg",
+        rating: 4.9,
+        featured: true,
+        tags: ["adorable", "prayer", "kids", "colorful"],
+        category: "prayer",
+        description: "Beautiful colorful prayer mat perfect for children"
+    },
+    {
+        id: 2,
+        name: "Islamic Stories for Kids",
+        price: 12.99,
+        image: "images/book1.jpg",
+        rating: 4.7,
+        featured: false,
+        tags: ["educational", "kids", "stories"],
+        category: "books",
+        description: "Collection of engaging Islamic stories for children"
+    },
+    {
+        id: 3,
+        name: "Baby Prayer Outfit Set",
+        price: 29.99,
+        image: "images/outfit1.jpg",
+        rating: 4.8,
+        featured: true,
+        tags: ["adorable", "clothing", "kids"],
+        category: "clothing",
+        description: "Complete prayer outfit set for babies and toddlers"
+    },
+    {
+        id: 4,
+        name: "Quran for Beginners - English",
+        price: 15.99,
+        image: "images/quran1.jpg",
+        rating: 4.6,
+        featured: false,
+        tags: ["educational", "quran", "beginners"],
+        category: "books",
+        description: "Easy-to-understand Quran translation for new Muslims"
+    },
+    {
+        id: 5,
+        name: "Islamic Alphabet Puzzle",
+        price: 18.99,
+        image: "images/puzzle1.jpg",
+        rating: 4.9,
+        featured: true,
+        tags: ["adorable", "educational", "kids"],
+        category: "toys",
+        description: "Educational puzzle teaching Arabic alphabet"
+    },
+    {
+        id: 6,
+        name: "Premium Prayer Beads",
+        price: 8.99,
+        image: "images/beads1.jpg",
+        rating: 4.5,
+        featured: false,
+        tags: ["prayer", "accessories"],
+        category: "accessories",
+        description: "Beautiful prayer beads for dhikr and meditation"
+    }
+];
+
+// Filtering function for best rated items
+function getBestRatedProducts() {
+    return sampleProducts.filter(product => 
+        product.rating >= 4.7 // Show items with 4.7+ rating
+    ).slice(0, 4); // Show top 4
+}
+
+// Load best rated items
+function loadBestRatedItems() {
+    const bestRated = getBestRatedProducts();
+    const container = document.getElementById('best-rated-items');
+    
+    if (bestRated.length === 0) {
+        container.innerHTML = '<p style="text-align: center; grid-column: 1/-1;">No highly rated items found.</p>';
+        return;
+    }
+    
+    container.innerHTML = bestRated.map(product => `
+        <div class="card" onclick="viewProduct(${product.id})">
+            <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x200/1a1a2e/667eea?text=Islamic+Product'">
+            <div class="cardInfo">
+                <div class="cardName">
+                    <p>${product.category}</p>
+                    <h3>${product.name}</h3>
+                    <div style="color: #ffd700; font-size: 0.9rem;">⭐ ${product.rating}</div>
+                    <div style="color: #4ecdc4; font-weight: 600; margin-top: 5px;">$${product.price}</div>
+                </div>
+                <a href="#" class="icon" onclick="event.preventDefault(); addToCart(${product.id})">
+                    <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt="Add to Cart">
+                </a>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Product actions
+function viewProduct(productId) {
+    const product = sampleProducts.find(p => p.id === productId);
+    if (product) {
+        alert(`Product Details:\n\nName: ${product.name}\nPrice: $${product.price}\nRating: ⭐ ${product.rating}\nCategory: ${product.category}\n\nDescription: ${product.description}`);
+    }
+}
+
+function addToCart(productId) {
+    const product = sampleProducts.find(p => p.id === productId);
+    if (product) {
+        alert(`Added to cart: ${product.name}\nPrice: $${product.price}`);
+        // Add actual cart logic here
+    }
+}
+
+function viewAllProducts() {
+    alert('This would navigate to the full products page');
+    // You can add: pageManager.navigateTo('shop') if you have a shop page
+}
+
+// Initialize when page loads
+document.addEventListener('DOMContentLoaded', function() {
+    loadBestRatedItems();
+    
+    // Smooth scrolling for navigation
+    document.querySelectorAll('.headerLinks a[href^="#"]').forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+    
+    // Contact form submission
+    document.querySelector('.contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your message! We will get back to you soon.');
+        this.reset();
+    });
+});
+</script>
